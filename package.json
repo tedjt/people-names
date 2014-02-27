@@ -1,0 +1,26 @@
+{
+  "name": "people-names",
+  "version": "0.0.1",
+  "description": "Work with people names",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tedjt/people-names.git"
+  },
+  "keywords": [
+    "names",
+    "leader",
+    "casing"
+  ],
+  "author": "Ted Tomlinson",
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "mocha": "~1.12.0",
+    "expect.js": "*"
+  }
+}
