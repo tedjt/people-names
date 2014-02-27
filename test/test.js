@@ -33,6 +33,11 @@ describe('people-names', function () {
         lastName: 'T.  '
       };
       assert(names.looseCompare(source, input));
+
+      input = {
+        name: 'Ted Jacob Tomlinson',
+      };
+      assert(names.looseCompare(source, input));
     });
   });
 
