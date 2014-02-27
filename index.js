@@ -12,6 +12,7 @@ module.exports.looseCompare = function validateName(source, input) {
   console.log('comparing names: %s %s %s %s', sFirstName, sLastName, iFirstName, iLastName);
   if (sFirstName === iFirstName && iLastName === sLastName) return true;
   if (sLastName.length < 2 && sFirstName === iFirstName && iLastName[0] === sLastName[0]) return true;
+  if (sLastName.slice(0, 3) === iLastName.slice(0, 3) && sfirstName.slice(0, 3) === sLastName.slice(0, 3)) return true;
   return false;
 };
 
