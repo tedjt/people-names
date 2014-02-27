@@ -7,6 +7,7 @@ module.exports.looseCompare = function validateName(source, input) {
   var cleanSourceName = clean(source.name);
   var maxLength = Math.min(cleanInputName.length, cleanSourceName.length);
   if (cleanInputName.slice(0, maxLength) === cleanSourceName.slice(0, maxLength)) return true;
+  if (cleanInputName.slice(0, 3) === cleanSourceName.slice(0, 3) && cleanInputName.slice(-3) === cleanSourceName.slice(-3)) return true;
   // names are different - need to parse
   var sLastName = lastClean(source);
   var sFirstName = firstClean(input);
