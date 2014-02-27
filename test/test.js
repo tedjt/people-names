@@ -38,6 +38,10 @@ describe('people-names', function () {
         name: 'Ted Jacob Tomlinson',
       };
       assert(names.looseCompare(source, input));
+
+      source = { name: 'Aitor Moreno' };
+      input = { name: 'Aitor Moreno Fdz. de Leceta' };
+      assert(names.looseCompare(source, input));
     });
   });
 
