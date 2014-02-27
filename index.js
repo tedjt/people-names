@@ -3,12 +3,24 @@ module.exports.looseCompare = function validateName(source, input) {
   // check to make sure input name isn't too different from existing
   if (!source.name) return true;
   if (!input.name) return false;
-  if (input.name.replace(/ /g, '').toUpperCase() === source.name.replace(/ /g, '').toUpperCase()) return true;
+  if (clean(input.name) === clean(source.name)) return true;
   // names are different - need to parse
-  var sLastName = source.lastName.replace(/[ .]/g, '').toUpperCase();
-  var sFirstName = source.firstName.replace(/[ .]/g, '').toUpperCase();
-  var iFirstName = (input.firstName || input.name.split(' ')[0]).replace(/[ .]/g, '').toUpperCase();
-  var iLastName = (input.lastName || input.name.split(' ').slice(-1)[0]).replace(/[ .]/g, '').toUpperCase();
+  var sLastName = lastClean(source);
+  var sFirstName = firstClean(input);
+  var iFirstName = firstClean(input);
+  var iLastName = lastClean(input);
   if (sLastName.length < 2 && sFirstName === iFirstName && iLastName[0] === sLastName[0]) return true;
   return false;
 };
+
+function firstClean(input) {
+  return clean(input.firstName || input.name.split(' ')[0]);
+}
+
+function lastClean(input) {
+  return clean(input.lastName || input.name.split(' ').slice(-1)[0]);
+}
+
+function clean(inputS) {
+  return inputS.replace(/[ .]/g, '').toUpperCase();
+}
