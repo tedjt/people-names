@@ -10,7 +10,7 @@ module.exports.looseCompare = function validateName(source, input) {
   if (cleanInputName.slice(0, 3) === cleanSourceName.slice(0, 3) && cleanInputName.slice(-3) === cleanSourceName.slice(-3)) return true;
   // names are different - need to parse
   var sLastName = lastClean(source);
-  var sFirstName = firstClean(input);
+  var sFirstName = firstClean(source);
   var iFirstName = firstClean(input);
   var iLastName = lastClean(input);
   console.log('comparing names: %s %s %s %s', sFirstName, sLastName, iFirstName, iLastName);
@@ -18,6 +18,8 @@ module.exports.looseCompare = function validateName(source, input) {
   if (sLastName.length < 2 && sFirstName === iFirstName && iLastName[0] === sLastName[0]) return true;
   if (sLastName.slice(0, 3) === iLastName.slice(0, 3) && sFirstName.slice(0, 3) === sLastName.slice(0, 3)) return true;
   if (sLastName.slice(0, 3) === iLastName.slice(0, 3) && sFirstName.slice(0, 3) === sLastName.slice(0, 3)) return true;
+  // also accept if last and first are reversed
+  if (sLastName.slice(0, 3) === iFirstName.slice(0, 3) && sFirstName.slice(0, 3) === iLastName.slice(0, 3)) return true;
   return false;
 };
 

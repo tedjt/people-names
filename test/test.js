@@ -42,6 +42,10 @@ describe('people-names', function () {
       source = { name: 'Aitor Moreno' };
       input = { name: 'Aitor Moreno Fdz. de Leceta' };
       assert(names.looseCompare(source, input));
+
+      source = { name: 'Spear Kaili', firstName: 'Spear', lastName: 'Kaili' };
+      input = { name: 'Kaili Spear' };
+      assert(names.looseCompare(source, input));
     });
   });
 
