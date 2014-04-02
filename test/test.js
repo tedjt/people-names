@@ -50,6 +50,10 @@ describe('people-names', function () {
       source = {'name':'Gordon Wintrob','firstName':'Gordon','lastName':'Gwin'};
       input = {name: 'Gordon Wintrob'};
       assert(names.looseCompare(source, input));
+
+      source = {'name': '\"Chuen Lum\"'};
+      input = {name: 'Chuen Lum'};
+      assert(names.looseCompare(source, input));
     });
   });
 

@@ -32,5 +32,5 @@ function lastClean(input) {
 }
 
 function clean(inputS) {
-  return inputS.split(',')[0].replace(/[ .]/g, '').toUpperCase();
+  return inputS.split(',')[0].replace(/[ ."]/g, '').toUpperCase();
 }
