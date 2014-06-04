@@ -14,6 +14,8 @@ module.exports.looseCompare = function validateName(source, input) {
   var iFirstName = firstClean(input);
   var iLastName = lastClean(input);
   console.log('comparing names: %s %s %s %s', sFirstName, sLastName, iFirstName, iLastName);
+  if (sFirstName.length === 1 && sFirstName[0] === iFirstName[0] && sLastName === iLastName) return true;
+  if (iFirstName.length === 1 && sFirstName[0] === iFirstName[0] && sLastName === iLastName) return true;
   if (sFirstName === iFirstName && iLastName === sLastName) return true;
   if (sLastName.length < 2 && sFirstName === iFirstName && iLastName[0] === sLastName[0]) return true;
   if (sLastName.slice(0, 3) === iLastName.slice(0, 3) && sFirstName.slice(0, 3) === sLastName.slice(0, 3)) return true;
@@ -32,5 +34,5 @@ function lastClean(input) {
 }
 
 function clean(inputS) {
-  return inputS.split(',')[0].replace(/[ ."]/g, '').toUpperCase();
+  return inputS.split(',')[0].replace(/[ ."]/g, '').toLowerCase();
 }
